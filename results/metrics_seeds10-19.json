@@ -1,0 +1,124 @@
+{
+  "seeds": [
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+  ],
+  "k": 3.5,
+  "n_building_years": 30,
+  "detection": {
+    "M1_fixed_threshold": {
+      "precision": 0.12258064516129032,
+      "recall": 0.1,
+      "f1": 0.11014492753623188,
+      "f1_seed_mean": 0.10728963756991036,
+      "f1_seed_std": 0.06101156928485436,
+      "false_alarms_per_building_year": 13.6,
+      "fp_on_scheduled_events": 5,
+      "fp_other": 403,
+      "n_pred": 465,
+      "n_truth": 270,
+      "detected": 27
+    },
+    "M2_seasonal_profile": {
+      "precision": 0.21660649819494585,
+      "recall": 0.7481481481481481,
+      "f1": 0.33594811098483796,
+      "f1_seed_mean": 0.3374701047566339,
+      "f1_seed_std": 0.032385738127050354,
+      "false_alarms_per_building_year": 28.933333333333334,
+      "fp_on_scheduled_events": 194,
+      "fp_other": 674,
+      "n_pred": 1108,
+      "n_truth": 270,
+      "detected": 202
+    },
+    "M3_weather_baseline": {
+      "precision": 0.5027932960893855,
+      "recall": 0.9777777777777777,
+      "f1": 0.6640952540667449,
+      "f1_seed_mean": 0.6641661185478474,
+      "f1_seed_std": 0.018919358937301945,
+      "false_alarms_per_building_year": 8.9,
+      "fp_on_scheduled_events": 232,
+      "fp_other": 35,
+      "n_pred": 537,
+      "n_truth": 270,
+      "detected": 264
+    },
+    "M4_energy_detective": {
+      "precision": 0.8653846153846154,
+      "recall": 0.9777777777777777,
+      "f1": 0.9181544168792023,
+      "f1_seed_mean": 0.9191392042544824,
+      "f1_seed_std": 0.031104641456822502,
+      "false_alarms_per_building_year": 1.4,
+      "fp_on_scheduled_events": 7,
+      "fp_other": 35,
+      "n_pred": 312,
+      "n_truth": 270,
+      "detected": 264
+    }
+  },
+  "diagnosis": {
+    "n": 264,
+    "top1_accuracy": 0.9848484848484849,
+    "majority_baseline": 0.3409090909090909,
+    "uniform_baseline": 0.25,
+    "per_cause": {
+      "hvac_after_hours": {
+        "n": 90,
+        "acc": 1.0
+      },
+      "chiller_inefficiency": {
+        "n": 30,
+        "acc": 1.0
+      },
+      "base_load_leak": {
+        "n": 60,
+        "acc": 1.0
+      },
+      "meter_fault": {
+        "n": 84,
+        "acc": 0.9523809523809523
+      }
+    },
+    "confusion": {
+      "hvac_after_hours": {
+        "hvac_after_hours": 90,
+        "chiller_inefficiency": 0,
+        "base_load_leak": 0,
+        "meter_fault": 0,
+        "unexplained": 0
+      },
+      "chiller_inefficiency": {
+        "hvac_after_hours": 0,
+        "chiller_inefficiency": 30,
+        "base_load_leak": 0,
+        "meter_fault": 0,
+        "unexplained": 0
+      },
+      "base_load_leak": {
+        "hvac_after_hours": 0,
+        "chiller_inefficiency": 0,
+        "base_load_leak": 60,
+        "meter_fault": 0,
+        "unexplained": 0
+      },
+      "meter_fault": {
+        "hvac_after_hours": 0,
+        "chiller_inefficiency": 0,
+        "base_load_leak": 0,
+        "meter_fault": 80,
+        "unexplained": 4
+      }
+    }
+  }
+}
